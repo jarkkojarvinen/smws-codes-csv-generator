@@ -37,6 +37,7 @@ To generate the smws_codes.csv file:
       `python src\generate.py`
    - On Windows:
       `python src/generate.py`
+3. The CSV file `smws_codes.csv` is generated under the data folder
 
 Project Structure
 

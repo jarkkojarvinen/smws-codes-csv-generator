@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
+
 def scrape_whiskygospel():
     # URL of the target webpage
     url = "https://whiskygospel.com/smws-codes/"
@@ -48,10 +49,11 @@ def scrape_whiskygospel():
     # Write to CSV
     output_file = "data/smws_codes.csv"
     with open(output_file, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file, delimiter=';')
+        writer = csv.writer(file, delimiter=";")
         writer.writerows(csv_data)
 
     print(f"{len(csv_data)} rows successfully exported to {output_file}")
+
 
 # Run the scraper
 scrape_whiskygospel()
