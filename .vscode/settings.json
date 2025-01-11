@@ -1,0 +1,33 @@
+{
+    "files.eol": "\n",
+    "editor.tabSize": 4,
+    "python.defaultInterpreterPath": "./venv/bin/python",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "./tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.analysis.extraPaths": [
+        "./src"
+    ],
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "python.analysis.autoSearchPaths": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "files.trimTrailingWhitespace": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        },
+    },
+    "black-formatter.args": [
+        "--line-length",
+        "88",
+    ],
+    "flake8.args": [
+        "--max-line-length",
+        "88",
+    ],
+}
