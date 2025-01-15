@@ -35,11 +35,22 @@ To generate the smws_codes.csv file:
 2. Run the script:
    - On Windows:
       `python src\generate.py`
-   - On Windows:
+   - On macOS/Linux:
       `python src/generate.py`
 3. The CSV file `smws_codes.csv` is generated under the data folder
 
-Project Structure
+## SMWS Codes
+
+Generated CSV file example:
+
+```csv
+SMWS Code;Distillery;Region/Country
+1;Glenfarclas;Speyside
+2;Glenlivet;Speyside
+...
+```
+
+## Project Structure
 
 ```plaintext
 smws-codes-csv-generator
