@@ -1,11 +1,14 @@
+import csv
+import os
+
 import requests
 from bs4 import BeautifulSoup
-import csv
 
 
 def scrape_whiskygospel():
     # URL of the target webpage
     url = "https://whiskygospel.com/smws-codes/"
+    output_file = "data/smws_codes.csv"
 
     # Send a GET request to fetch the webpage content
     response = requests.get(url)
@@ -46,13 +49,23 @@ def scrape_whiskygospel():
                     data[2] = "Washington, USA"
                 csv_data.append(data)
 
-    # Write to CSV
-    output_file = "data/smws_codes.csv"
-    with open(output_file, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file, delimiter=";")
-        writer.writerows(csv_data)
+    # Read existing data if file exists
+    existing_data = []
+    if os.path.exists(output_file):
+        with open(output_file, mode="r", encoding="utf-8") as file:
+            reader = csv.reader(file, delimiter=";")
+            existing_data = list(reader)
 
-    print(f"{len(csv_data)} rows successfully exported to {output_file}")
+    # Compare current data to existing data
+    if existing_data == csv_data:
+        print("No changes detected. CSV not updated.")
+    else:
+        # Write to CSV
+        output_file = "data/smws_codes.csv"
+        with open(output_file, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file, delimiter=";")
+            writer.writerows(csv_data)
+        print(f"{len(csv_data)} rows successfully exported to {output_file}")
 
 
 # Run the scraper
